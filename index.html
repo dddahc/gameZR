@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小恐龙跑酷游戏 - Chrome Dino Clone</title>
+    <title>张韧跑酷 - Chrome Dino Clone</title>
     <style>
         * {
             margin: 0;
@@ -211,7 +211,7 @@
 <body>
     <div class="container">
         <div class="game-header">
-            <h1>小恐龙跑酷</h1>
+            <h1>张韧爱跑酷</h1>
             <div class="score-container">
                 <div class="score-box">
                     得分: <span id="score">0</span>
@@ -488,12 +488,17 @@ ctx.drawImage(dinoImg, dino.x, dino.y + 15, dino.width, dino.height - 15);
             }
             
             game.frames++;
-            
+      /*      
             // 每500帧提高游戏速度
             if (game.frames % 500 === 0) {
                 game.speed += 0.5;
             }
-            
+    */
+            // 每500帧提高游戏速度
+            if (game.elapsedTimeSinceLastSpeedIncrease >= 1000     ) {
+                game.speed += 0.5;
+            }
+   
             drawBackground();
             drawClouds();
             drawGround();
