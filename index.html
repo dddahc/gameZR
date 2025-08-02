@@ -244,8 +244,8 @@
     
     <div class="start-screen" id="start-screen">
         <div class="title-dino">🦖</div>
-        <h1>小恐龙跑酷游戏</h1>
-        <p>像Chrome离线时的小恐龙一样奔跑！按下空格键或上箭头键跳过仙人掌，看看你能跑多远。</p>
+        <h1>张韧游戏</h1>
+        <p>狠狠踢张韧屁股让他跳过仙人掌，看看你能跑多远。</p>
         <p class="instructions">按空格键开始游戏</p>
     </div>
 
@@ -260,7 +260,7 @@
         const finalHighScoreElement = document.getElementById('final-high-score');
         const restartButton = document.getElementById('restart');
         const startScreen = document.getElementById('start-screen');
-        
+
             // 加载图片
             const dinoImg = new Image();
             dinoImg.src = 'PLAYER4.jpeg';
@@ -323,13 +323,12 @@
                 }
             }
         }
-        
+
         // 绘制恐龙
         function drawDino() {
 ctx.drawImage(dinoImg, dino.x, dino.y + 15, dino.width, dino.height - 15);
-
         }
-        
+         
         // 创建障碍物
         function createObstacle() {
             const height = Math.random() * (MAX_CACTUS_HEIGHT - MIN_CACTUS_HEIGHT) + MIN_CACTUS_HEIGHT;
@@ -503,6 +502,7 @@ ctx.drawImage(dinoImg, dino.x, dino.y + 15, dino.width, dino.height - 15);
             drawClouds();
             drawGround();
             drawDino();
+	   drawZhangren();
             updateDino();
             updateObstacles();
             drawObstacles();
