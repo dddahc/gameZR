@@ -260,7 +260,7 @@
         const finalHighScoreElement = document.getElementById('final-high-score');
         const restartButton = document.getElementById('restart');
         const startScreen = document.getElementById('start-screen');
-
+        
             // 加载图片
             const dinoImg = new Image();
             dinoImg.src = 'PLAYER4.jpeg';
@@ -323,12 +323,13 @@
                 }
             }
         }
-
+        
         // 绘制恐龙
         function drawDino() {
 ctx.drawImage(dinoImg, dino.x, dino.y + 15, dino.width, dino.height - 15);
+
         }
-         
+        
         // 创建障碍物
         function createObstacle() {
             const height = Math.random() * (MAX_CACTUS_HEIGHT - MIN_CACTUS_HEIGHT) + MIN_CACTUS_HEIGHT;
@@ -502,7 +503,6 @@ ctx.drawImage(dinoImg, dino.x, dino.y + 15, dino.width, dino.height - 15);
             drawClouds();
             drawGround();
             drawDino();
-	   drawZhangren();
             updateDino();
             updateObstacles();
             drawObstacles();
