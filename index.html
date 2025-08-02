@@ -488,17 +488,17 @@ ctx.drawImage(dinoImg, dino.x, dino.y + 15, dino.width, dino.height - 15);
             }
             
             game.frames++;
-      /*      
+    
             // 每500帧提高游戏速度
-            if (game.frames % 500 === 0) {
+            if (game.frames % 50 === 0) {
                 game.speed += 0.5;
             }
-    */
+      /*  
             // 每500帧提高游戏速度
             if (game.elapsedTimeSinceLastSpeedIncrease >= 100     ) {
-                game.speed += 0.5;
+                game.speed += 5;
             }
-   
+       */
             drawBackground();
             drawClouds();
             drawGround();
