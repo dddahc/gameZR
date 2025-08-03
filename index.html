@@ -209,6 +209,12 @@
     </style>
 </head>
 <body>
+
+        <audio id="bgMusic" loop>
+        <source src="https://sharefs.kugou.com/202508031133/76d097bf9876d315259fd1939a3bec9f/v3/f93bf23dcbf93375c13934b71ec22927/yp/full/ap1000_us0_pi409_s4099546762.mp3"audio/mpeg>
+        您的浏览器不支持音频元素。
+    </audio>
+
     <div class="container">
         <div class="game-header">
             <h1>张韧爱跑酷</h1>
@@ -267,8 +273,8 @@
 
         // 游戏常量
         const GROUND_HEIGHT = 30;
-        const GRAVITY = 0.6;
-        const JUMP_FORCE = 16;
+        const GRAVITY = 1;
+        const JUMP_FORCE = 20;
         const DINO_WIDTH = 120;
         const DINO_HEIGHT = 160;
         const CACTUS_WIDTH = 20;
@@ -511,6 +517,7 @@ ctx.drawImage(dinoImg, dino.x, dino.y + 15, dino.width, dino.height - 15);
             // 检测碰撞
             if (checkCollision()) {
                 gameOver();
+
                 return;
             }
             
@@ -555,8 +562,27 @@ ctx.drawImage(dinoImg, dino.x, dino.y + 15, dino.width, dino.height - 15);
             // 开始游戏
             if ((e.code === 'Space' || e.code === 'ArrowUp') && !game.isRunning && gameOverScreen.style.display !== 'block') {
                 startGame();
+
+
             }
         });  
+
+        // 自动播放音乐（静音处理，需要用户交互）
+        const bgMusic = document.getElementById('bgMusic');
+        bgMusic.volume = 0.3;
+
+        document.body.addEventListener('click', function() {
+            if (1) {
+                bgMusic.play().catch(e => console.log("自动播放音乐需要用户交互"));
+            }
+        }, { once: true });
+
+        document.addEventListener('keydown', (e) => {
+            if (1) {
+                bgMusic.play().catch(e => console.log("自动播放音乐需要用户交互"));
+            }
+        }, { once: true });
+
         // 支持触摸设备
         canvas.addEventListener('click', () => {
             if (game.isRunning) {
@@ -572,6 +598,7 @@ ctx.drawImage(dinoImg, dino.x, dino.y + 15, dino.width, dino.height - 15);
             gameOverScreen.style.display = 'none';
             game.isRunning = true;
             gameLoop();
+
         });
         
         // 开始游戏
